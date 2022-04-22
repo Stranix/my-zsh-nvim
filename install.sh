@@ -1,4 +1,7 @@
 #!/bin/bash
+#создаем нужные папки
+mkdir ~/.config
+mkdir ~/.config/nvim
 sudo add-apt-repository ppa:deadsnakes/ppa
 sudo add-apt-repository ppa:neovim-ppa/stable
 sudo apt update
