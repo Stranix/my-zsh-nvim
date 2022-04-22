@@ -1,15 +1,5 @@
 #!/bin/bash
-echo "создаем папки"
-mkdir ~/.config
-mkdir ~/.config/nvim
-echo "Подключаем доп репозитории"
-sudo add-apt-repository ppa:deadsnakes/ppa
-sudo add-apt-repository ppa:neovim-ppa/stable
-echo "Обновляем"
-sudo apt update
-sudo apt install zsh tmux htop -y
-echo "Закачиваем нужные скрипты и пакеты"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+echo "Кастомизируем"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
