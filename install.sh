@@ -1,5 +1,6 @@
 #!/bin/bash
 echo "создаем папки"
+mkdir ~/.config
 mkdir ~/.config/nvim
 echo "Подключаем доп репозитории"
 sudo add-apt-repository ppa:deadsnakes/ppa
