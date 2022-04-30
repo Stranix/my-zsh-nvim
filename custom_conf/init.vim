@@ -51,7 +51,7 @@ Plug 'dkarter/bullets.vim'
 Plug 'psliwka/vim-smoothie'
 Plug 'antoinemadec/FixCursorHold.nvim'
 Plug 'wellle/context.vim'
-
+Plug 'Pocco81/AutoSave.nvim'
 " Entertainment
 Plug 'dansomething/vim-hackernews'
 
@@ -72,7 +72,31 @@ set hidden
 set number
 set title
 
-""" Coloring
+"Autosave
+lua << EOF
+local autosave = require("autosave")
+
+autosave.setup(
+    {
+        enabled = true,
+        execution_message = "AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"),
+        events = {"InsertLeave", "TextChanged"},
+        conditions = {
+            exists = true,
+            filename_is_not = {},
+            filetype_is_not = {},
+            modifiable = true
+        },
+        write_all_buffers = false,
+        on_off_commands = true,
+        clean_command_line_interval = 0,
+        debounce_delay = 135
+    }
+)
+EOF
+
+
+""Coloring
 
 " Functions and autocmds to run whenever changing colorschemes
 function! TransparentBackground()
